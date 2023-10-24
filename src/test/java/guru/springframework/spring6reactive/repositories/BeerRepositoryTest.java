@@ -9,10 +9,11 @@ import org.springframework.context.annotation.Import;
 
 import java.math.BigDecimal;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @DataR2dbcTest
 @Import(DatabaseConfig.class)
 class BeerRepositoryTest {
-
     @Autowired
     BeerRepository beerRepository;
 
@@ -23,27 +24,13 @@ class BeerRepositoryTest {
                     System.out.println(beer.toString());
                 });
     }
-
-    Beer getTestBeer() {
+    Beer getTestBeer(){
         return Beer.builder()
                 .beerName("Space Dust")
                 .beerStyle("IPA")
+                .upc("12345")
+                .quantityOnHand(13)
                 .price(BigDecimal.TEN)
-                .quantityOnHand(12)
-                .upc("123213")
                 .build();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
